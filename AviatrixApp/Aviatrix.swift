@@ -35,6 +35,10 @@ class Aviatrix {
     }
     
     func knownDestinations() -> [String] {
-       return ["St. Louis"]
+        var destinations = [String]()
+        for city in AviatrixData().knownDistances {
+            destinations.append(city.key)
+        }
+        return destinations
     }
 }
