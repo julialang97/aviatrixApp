@@ -33,7 +33,7 @@ func fly(myPlane : Aviatrix) {
     let response = Int(readLine()!)
     var desiredLocation = ""
     
-    if response! >= 0 && response! < 4 {
+    if response! >= 0 && response! < 5 {
         desiredLocation = myPlane.knownDestinations()[response!]
         
         print("🛫 Preparing for takeoff...")
@@ -60,17 +60,17 @@ func refuel(myPlane : Aviatrix) {
 }
 
 func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
-//    let distanceToTravel =  Double(myPlane.distanceTo(target : destination))
-//    if myPlane.fuelLevel < distanceToTravel {
-//        print(" ")
-//        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
-//        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.location)!")
-//        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
-//
-//        return false
-//    } else {
-//        return true
-//    }
+    let distanceToTravel =  Double(myPlane.distanceTo(target : destination, currentLocation: plane.location))
+    if myPlane.fuelLevel < distanceToTravel {
+        print(" ")
+        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
+        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.location)!")
+        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
+
+        return false
+    } else {
+        return true
+    }
     return true
 }
 
